@@ -7,5 +7,7 @@ public class Node {
     }
     public Node(){
         this.data=null;
+        //coucou
+        
     }
 }
