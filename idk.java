@@ -10,5 +10,4 @@ public class idk {
         //TODO
         //clean code
         // delete idk and create a game main class
-        // couocucouocuu 
         }
