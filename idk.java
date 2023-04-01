@@ -61,8 +61,10 @@ public class idk
                                 if(answ.equals("no"))
                                         NodeBranch new_question = new NodeBranch(/*indice de l'erreur */0,/*indice du nouveau */0, quest);
                                 
-                                // Ajouter l'animal et la question à l'arbre
+                                // Ajouter new_animal et new_question au vecteur nodeArray
                                 // Actualiser les indices des éléments des l'arbre 
+
+                                break;
                         }
 
                 }
