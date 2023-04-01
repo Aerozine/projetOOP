@@ -6,7 +6,7 @@ import java.util.Scanner;
 // switching for vector ?
 public class tree {
 
-public Node[] nodeArray;
+public static Node[] nodeArray;
     public tree(String Filename) throws FileNotFoundException {
         Scanner scanner ;
         scanner = new Scanner(new File(Filename));
