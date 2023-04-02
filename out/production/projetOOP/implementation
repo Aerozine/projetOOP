@@ -1,0 +1,3 @@
+read I from a file 
+generate the binary tree structure
+if result is unknow, ask for the implementation of a new nodes 
