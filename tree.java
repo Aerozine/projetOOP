@@ -69,48 +69,54 @@ return nodeArray.get(0);
     private void actualizeTheFile(Node question){
         int index = this.nodeArray.indexOf(question)+1;
         int size=this.nodeArray.size();
-        File file = new File(Filename);
+        /*
+        File file = new File("file.txt");
         BufferedReader reader = null;
-        FileWriter writer;
-        String line ;
-        StringBuilder stringBuilder=new StringBuilder();
-        int lineNumber=0;
+        RandomAccessFile randomAccessFile = null;
+        String line = null;
+        StringBuilder stringBuilder = new StringBuilder();
+        int lineNumber = 0;
+
         try {
             reader = new BufferedReader(new FileReader(file));
             while ((line = reader.readLine()) != null) {
                 lineNumber++;
-                if (lineNumber == index) {
-                    // modify the structure of the question to match with the structure
+                if (lineNumber == 3) {
                     stringBuilder.append("Hello World!");
-                } else if (lineNumber>=size-2){
-                stringBuilder.append("text");
-            }else{
+                } else {
                     stringBuilder.append(line);
                 }
                 stringBuilder.append(System.lineSeparator());
             }
 
-
             // Write the modified content back to the file
-            writer = new FileWriter(file);
-            writer.write(stringBuilder.toString());
+            randomAccessFile = new RandomAccessFile(file, "rw");
+            long position = 0;
+            while ((line = randomAccessFile.readLine()) != null) {
+                position = randomAccessFile.getFilePointer();
+                if (lineNumber == 3) {
+                    randomAccessFile.seek(position - line.length() - System.lineSeparator().length());
+                    randomAccessFile.writeBytes("Hello World!");
+                    break;
+                }
+                lineNumber++;
+            }
 
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
-            // Close the reader and writer
+            // Close the reader and randomAccessFile
             try {
                 if (reader != null) {
                     reader.close();
                 }
-                if (writer != null) {
-                    writer.close();
+                if (randomAccessFile != null) {
+                    randomAccessFile.close();
                 }
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
-
+*/
         }
-    }
 }
