@@ -4,7 +4,13 @@ import java.util.Scanner;
 public class game {
     public static void main(String[] args) throws FileNotFoundException {
         tree gametree=new tree("textfile.txt");
-        rungame(gametree);
+        String answer=null;
+        Scanner scanner=new Scanner(System.in);
+        do {
+            rungame(gametree);
+            System.out.println("wanna retry ?");
+            answer=scanner.nextLine();
+        }while (answer.equals("y") || answer.equals("n"));
     }
     public static void rungame(tree gametree){
     System.out.println(gametree.getInitext());

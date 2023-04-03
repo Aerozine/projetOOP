@@ -1,5 +1,4 @@
-import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.*;
 import java.util.Scanner;
 import java.util.Stack;
 import java.util.Vector;
@@ -9,9 +8,11 @@ import java.util.Vector;
 
 public class tree {
 private String initext;
+private String Filename;
 private Vector<Node> nodeArray;
 //other structure than array doesn't permit to conserve a link to an object that will be later defined as child
     public tree(String Filename) throws FileNotFoundException {
+        this.Filename=Filename;
         Scanner scanner ;
         scanner = new Scanner(new File(Filename));
         int numberOfLine = scanner.nextInt();
@@ -54,17 +55,62 @@ return nodeArray.get(0);
     public void reshape(Node question,Node Answer,String newQuestion , String alternativeAnswer,boolean alternativeIsYes){
     this.nodeArray.add(new Node(alternativeAnswer));
         if(alternativeIsYes)
-            this.nodeArray.add(new NodeBranch(nodeArray.get(nodeArray.size()-1),Answer,newQuestion));
+            this.nodeArray.add(new NodeBranch(nodeArray.lastElement(),Answer,newQuestion));
         else
-            this.nodeArray.add(new NodeBranch(Answer,nodeArray.get(nodeArray.size()-1),newQuestion));
+            this.nodeArray.add(new NodeBranch(Answer,nodeArray.lastElement(),newQuestion));
 
-        if(((NodeBranch)question).getPositive()==Answer){}
-//sth like this
-// clean and optimize reshape
-            // modify the base file and clear
+        if(((NodeBranch)question).getPositive()==Answer){
+            ((NodeBranch)question).setPositive(nodeArray.lastElement());
+        }else {
+            ((NodeBranch)question).setNegative(nodeArray.lastElement());
+        }
+    actualizeTheFile(question);
+    }
+    private void actualizeTheFile(Node question){
+        int index = this.nodeArray.indexOf(question)+1;
+        int size=this.nodeArray.size();
+        File file = new File(Filename);
+        BufferedReader reader = null;
+        FileWriter writer;
+        String line ;
+        StringBuilder stringBuilder=new StringBuilder();
+        int lineNumber=0;
+        try {
+            reader = new BufferedReader(new FileReader(file));
+            while ((line = reader.readLine()) != null) {
+                lineNumber++;
+                if (lineNumber == index) {
+                    // modify the structure of the question to match with the structure
+                    stringBuilder.append("Hello World!");
+                } else if (lineNumber>=size-2){
+                stringBuilder.append("text");
+            }else{
+                    stringBuilder.append(line);
+                }
+                stringBuilder.append(System.lineSeparator());
+            }
 
-        //TODO
-    //does the node indice the better way to specify the place to modify first?
-        // using .add() to add an element and set or setElementAt() to modify a certain element
+
+            // Write the modified content back to the file
+            writer = new FileWriter(file);
+            writer.write(stringBuilder.toString());
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            // Close the reader and writer
+            try {
+                if (reader != null) {
+                    reader.close();
+                }
+                if (writer != null) {
+                    writer.close();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        }
     }
 }
