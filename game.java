@@ -11,6 +11,7 @@ public class game {
             System.out.println("wanna retry ?");
             answer = scanner.nextLine();
         } while (answer.equals("y") || answer.equals("n"));
+        scanner.close();
     }
 
     public static void rungame(tree gametree) {
