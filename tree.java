@@ -70,7 +70,7 @@ public class tree {
 
         int index = this.nodeArray.indexOf(question);
         // jump to the line
-        // check if info is correct and ifnot(pos or neg !=) rewrite the good version
+        // check if info is correct and if-not(pos or neg !=) rewrite the good version
         // after that , go to the end of the file and write the 2 new nodes
         int size = this.nodeArray.size();
 
@@ -91,29 +91,22 @@ public class tree {
                     int pos = this.nodeArray.indexOf(question.getPositive());
                     int neg = this.nodeArray.indexOf(question.getNegative());
                     //rewrite the line and append it for the question
+                    //the parsing must be rewritten here
+                    stringBuilder.append("new line of question");
                 } else {
                     stringBuilder.append(line);
                 }
                 stringBuilder.append(System.lineSeparator());
             }// append store the whole file on an array , does it is the best way to do it ?
+            //should we use an RandomAccessFile ?
             //when readLine==null ,append the 2 new node
+            //the parsing must be rewritten here
+            stringBuilder.append("new node 1");
             stringBuilder.append(System.lineSeparator());
+            stringBuilder.append("new node 2");
             stringBuilder.append(System.lineSeparator());
             // Write the modified content back to the file
-            //raf seems a good option
             //need to clarify try catch and throw in the code
-            randomAccessFile = new RandomAccessFile(file, "rw");
-            long position = 0;
-            while ((line = randomAccessFile.readLine()) != null) {
-                position = randomAccessFile.getFilePointer();
-                if (lineNumber == 3) {
-                    randomAccessFile.seek(position - line.length() - System.lineSeparator().length());
-                    randomAccessFile.writeBytes("Hello World!");
-                    break;
-                }
-                lineNumber++;
-            }
-
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
@@ -121,9 +114,6 @@ public class tree {
             try {
                 if (reader != null) {
                     reader.close();
-                }
-                if (randomAccessFile != null) {
-                    randomAccessFile.close();
                 }
             } catch (IOException e) {
                 e.printStackTrace();
