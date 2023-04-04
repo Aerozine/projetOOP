@@ -20,6 +20,7 @@
 *.rar
 # idea related stuff
 .idea
+out
 *.iws
 *.iml
 *.ipr
