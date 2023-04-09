@@ -11,10 +11,7 @@ public class tree {
         int numberOfLine = scanner.nextInt();
         this.initext = scanner.nextLine();
         this.nodeArray = new Vector<>(numberOfLine);
-        // numberOfLine element not set ? -> equivalent to add numberOfLine element with add
-        // init an array of Node
-        // if a node is a question , then link to the object in the array
-        Stack<Integer> cords = new Stack<>();
+        Stack<Integer> cords = new Stack<>(); // store the number who link to another node
         while(scanner.hasNextLine()) {
             // if it s a question , set the element as a branch and set theirs branch
             String type = scanner.next();
