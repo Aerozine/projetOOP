@@ -2,6 +2,12 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class game {
+    public static boolean posAns(String answer){
+        return answer.equals("Y") || answer.equals("yes") || answer.equals("Yes") || answer.equals("y");
+    }
+    public static boolean negAns(String answer){
+        return answer.equals("Nn") || answer.equals("no") || answer.equals("No") || answer.equals("n");
+    }
     public static void main(String[] args)
     {
         tree gametree;
@@ -16,10 +22,10 @@ public class game {
         Scanner scanner = new Scanner(System.in);
         do
         {
-            if (answer.equals("y")) runGame(gametree);
+            if (posAns(answer)) runGame(gametree);
             System.out.println("wanna retry ?");
             answer = scanner.nextLine();
-        } while (!answer.equals("n"));
+        } while (!negAns(answer));
         scanner.close();
     }
 
@@ -37,8 +43,8 @@ public class game {
             {
                 System.out.println(node.getData());
                 answer = scanner.nextLine();
-            } while (!answer.equals("y") && !answer.equals("n"));
-            if (answer.equals("y"))
+            } while (!posAns(answer) && !negAns(answer));
+            if (posAns(answer))
             {
                 prev = node;
                 node = ((NodeBranch) node).getPositive();
@@ -54,23 +60,23 @@ public class game {
         {
             System.out.println("Does it is" + node.getData());
             answer = scanner.nextLine();
-        } while (!answer.equals("y") && !answer.equals("n"));
-        if (answer.equals("n"))
+        } while (!posAns(answer) && !negAns(answer));
+        if (negAns(answer))
         {
             System.out.println("I am unable to guess, you have won !");
             System.out.println("What did you chose ?");
             String newValue = scanner.nextLine();
-            System.out.println("What question could I ask to distinguish a " + newValue + " from a " + node.getData() + " ?");
+            System.out.println("What question could I ask to distinguish " + newValue + " from " + node.getData() + " ?");
             String newQuestion = scanner.nextLine();
             do
             {
-                System.out.println("For a " + newValue + ", would you answer yes or no to this question ?");
+                System.out.println("For " + newValue + ", would you answer yes or no to this question ?");
                 answer = scanner.nextLine();
-            } while (!answer.equals("y") && !answer.equals("n"));
+            } while (!posAns(answer) && !negAns(answer));
             try
             {
                 //reshaping the tree
-                gametree.reshape(prev, node, newQuestion, newValue, answer.equals("y"));
+                gametree.reshape(prev, node, newQuestion, newValue, posAns(answer));
             } catch (IOException e)
             {
                 throw new RuntimeException(e);
