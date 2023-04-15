@@ -1,8 +1,12 @@
 7 Please choose an animal
-? 2 6 Does it have 4 legs
+? 2 11  Does it have 4 legs
 ? 7 4 Does it eat grass
 = a dog
-? 3 5 Does it bark
+? 3 9  Does it bark
 = a cat
 = a chicken
 = a cow
+= rabbit
+? 8 5 does it eat carrot
+= fly
+? 10 6 does it fly
