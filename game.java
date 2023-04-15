@@ -23,7 +23,7 @@ public class game {
         do
         {
             if (posAns(answer)) runGame(gametree);
-            System.out.println("do you want to retry ?");
+            System.out.println("Do you want to retry ?");
             answer = scanner.nextLine();
         } while (!negAns(answer));
         scanner.close();
@@ -54,7 +54,7 @@ public class game {
                 node = ((NodeBranch) node).getNegative();
             }
             if (node == null)
-                throw new IllegalArgumentException("the game tree is incorrect at " + (gametree.getIndex(prev) + 1));
+                throw new IllegalArgumentException("The game tree is incorrect at line " + (gametree.getIndex(prev) + 1));
         }
         do
         {
@@ -83,6 +83,6 @@ public class game {
                 throw new RuntimeException(e);
             }
 
-        } else System.out.println("bingo");
+        } else System.out.println("Bingo !");
     }
 }
