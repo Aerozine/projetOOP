@@ -58,7 +58,7 @@ public class game {
         }
         do
         {
-            System.out.println("Does it is" + node.getData());
+            System.out.println("Is it" + node.getData());
             answer = scanner.nextLine();
         } while (!posAns(answer) && !negAns(answer));
         if (negAns(answer))
