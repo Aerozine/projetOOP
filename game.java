@@ -41,7 +41,7 @@ public class game {
         {
             do
             {
-                System.out.println(node.getData());
+                System.out.println(node.getData()+" (Y/N)?");
                 answer = scanner.nextLine();
             } while (!posAns(answer) && !negAns(answer));
             if (posAns(answer))
@@ -58,7 +58,7 @@ public class game {
         }
         do
         {
-            System.out.println("Is it" + node.getData());
+            System.out.println("Is it " + node.getData());
             answer = scanner.nextLine();
         } while (!posAns(answer) && !negAns(answer));
         if (negAns(answer))

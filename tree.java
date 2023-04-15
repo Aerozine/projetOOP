@@ -13,8 +13,11 @@ public class tree {
     private final String initext;
     private final Vector<Node> nodeArray;
     private final String Filename;
-
-
+    private static String cleanq(String s) {
+        if (s != null && s.length() > 0 && s.charAt(s.length() - 1) == '?')
+            s = s.substring(0, s.length() - 1);
+        return s;
+    }
     public tree(String Filename) throws Exception
     {
         this.Filename = Filename;
@@ -32,7 +35,7 @@ public class tree {
             {
                 cords.push(scanner.nextInt() - 1);
                 cords.push(scanner.nextInt() - 1);
-                nodeArray.add(new NodeBranch(scanner.nextLine()));
+                nodeArray.add(new NodeBranch(cleanq(scanner.nextLine())));
             } else if (type.equals("="))
             {
                 nodeArray.add(new Node(scanner.nextLine()));

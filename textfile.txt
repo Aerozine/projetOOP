@@ -1,4 +1,4 @@
-13 Please choose an animal
+15 Please choose an animal
 ? 2 6 Does it have 4 legs
 ? 7 4 Does it eat grass
 = a dog
@@ -11,4 +11,6 @@
 = carrot
 ? 10 8 does it is a carrot
 = rasberry
-? 12 5 rasberry ?
+? 12 15  rasberry 
+= kitty
+? 5 14 does it is old ?
