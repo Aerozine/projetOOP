@@ -23,7 +23,7 @@ public class game {
         do
         {
             if (posAns(answer)) runGame(gametree);
-            System.out.println("wanna retry ?");
+            System.out.println("do you want to retry ?");
             answer = scanner.nextLine();
         } while (!negAns(answer));
         scanner.close();
@@ -73,6 +73,7 @@ public class game {
                 System.out.println("For " + newValue + ", would you answer yes or no to this question ?");
                 answer = scanner.nextLine();
             } while (!posAns(answer) && !negAns(answer));
+            System.out.println("Thank you!");
             try
             {
                 //reshaping the tree
