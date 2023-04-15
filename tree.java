@@ -106,6 +106,7 @@ public class tree {
         //read all the files
         Path path = Paths.get(Filename);
         List<String> lines = Files.readAllLines(path, StandardCharsets.UTF_8);
+        lines.set(0,(nodeArray.size())+initext);
         //modifying the question node
         lines.set(index, NodeToString(question));
         // adding the new question and the new answer

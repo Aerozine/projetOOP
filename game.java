@@ -3,10 +3,10 @@ import java.util.Scanner;
 
 public class game {
     public static boolean posAns(String answer){
-        return answer.equals("Y") || answer.equals("yes") || answer.equals("Yes") || answer.equals("y");
+        return answer.equalsIgnoreCase("Y") || answer.equalsIgnoreCase("yes");
     }
     public static boolean negAns(String answer){
-        return answer.equals("Nn") || answer.equals("no") || answer.equals("No") || answer.equals("n");
+        return answer.equalsIgnoreCase("N") || answer.equalsIgnoreCase("no");
     }
     public static void main(String[] args)
     {
@@ -23,7 +23,7 @@ public class game {
         do
         {
             if (posAns(answer)) runGame(gametree);
-            System.out.println("do you want to retry ?");
+            System.out.println("Do you want to retry ?");
             answer = scanner.nextLine();
         } while (!negAns(answer));
         scanner.close();
@@ -54,11 +54,11 @@ public class game {
                 node = ((NodeBranch) node).getNegative();
             }
             if (node == null)
-                throw new IllegalArgumentException("the game tree is incorrect at " + (gametree.getIndex(prev) + 1));
+                throw new IllegalArgumentException("The game tree is incorrect at line " + (gametree.getIndex(prev) + 1));
         }
         do
         {
-            System.out.println("Does it is" + node.getData());
+            System.out.println("Is it" + node.getData());
             answer = scanner.nextLine();
         } while (!posAns(answer) && !negAns(answer));
         if (negAns(answer))
@@ -83,6 +83,6 @@ public class game {
                 throw new RuntimeException(e);
             }
 
-        } else System.out.println("bingo");
+        } else System.out.println("Bingo !");
     }
 }
