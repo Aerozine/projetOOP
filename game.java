@@ -10,16 +10,19 @@ public class game {
     }
     public static void main(String[] args)
     {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("write the text file you want to select \n>");
+        String gameFile="textfile.txt";
+        gameFile=scanner.nextLine();
         tree gametree;
         try
         {
-            gametree = new tree("textfile.txt");
+            gametree = new tree(gameFile);
         } catch (Exception e)
         {
             throw new RuntimeException(e);
         }
         String answer = "y";
-        Scanner scanner = new Scanner(System.in);
         do
         {
             if (posAns(answer)) runGame(gametree);

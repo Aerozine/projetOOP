@@ -1,16 +1,36 @@
-15 Please choose an animal
-? 2 6 Does it have 4 legs
-? 7 4 Does it eat grass
+35 Please choose an animal
+? 5 29   Does it have 4 legs
 = a dog
-? 3 9  Does it bark
-= a cat
 = a chicken
-= a cow
-= rabbit
-? 11 13   carrot?
-= carrot
-? 10 8 does it is a carrot
-= rasberry
-? 12 15  rasberry 
-= kitty
-? 5 14 does it is old ?
+= a horse
+? 11 7 Does it run fast ?
+= a turtle
+? 9 19  Is it small ?
+= a rabbit
+? 13 6 does it jump all the time ?
+= a lion
+? 21 15  does it live in savannah ?
+= a baby kangoroo
+? 12 25  Does it come from Australia
+= a kangoroo
+? 14 17 Does it jump all the time ?
+= a dog
+? 16 4 Can it live in a house ?
+= a panda
+? 18 27 does it eat bamboo
+= a zebra
+? 23 10 does it have sriped colors ?
+= a tiger
+? 22 20 Is it orange and black ?
+= a frog 
+? 24 8 does it live in the swamps
+= a monkey
+? 26 2 does it eat a lot of bananas 
+= a spider
+? 28 31  does it have 8 legs ?
+= a owl
+? 33 3 is it a bird ?
+= a parrot
+? 32 35 does it repeats all we say ?
+= a flamingo
+? 34 30 is it pink ?
